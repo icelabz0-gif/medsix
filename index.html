@@ -8,7 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -33,7 +33,7 @@
     }
 
     body {
-      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+      font-family: 'IBM Plex Sans', 'Segoe UI', Arial, sans-serif;
       color: var(--texto);
       background: var(--fundo);
       line-height: 1.6;
@@ -95,7 +95,6 @@
     .cabecalho-inner {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       padding: 12px 20px;
       max-width: 1080px;
       margin: 0 auto;
@@ -105,10 +104,10 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      font-size: 1.35rem;
+      font-size: 1.4rem;
       font-weight: 700;
       color: var(--azul);
-      letter-spacing: 0.01em;
+      letter-spacing: 0.03em;
     }
 
     /* Hero */
@@ -118,29 +117,35 @@
     }
 
     .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
       align-items: center;
     }
 
+    .hero-foto {
+      order: -1;
+      width: 100%;
+    }
+
     .hero h1 {
-      font-size: 2rem;
-      line-height: 1.2;
+      font-size: 1.6rem;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
       color: var(--azul);
       font-weight: 700;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .hero .sub {
-      font-size: 1.05rem;
+      font-size: 0.95rem;
       color: var(--texto-suave);
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       max-width: 34em;
     }
 
     .preco {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       font-weight: 700;
       color: var(--texto);
       margin-bottom: 6px;
@@ -163,18 +168,17 @@
       margin-top: 10px;
     }
 
-    .midia-placeholder {
+    .foto-card {
       background: #ffffff;
-      border: 1px dashed var(--borda);
+      border: 1px solid var(--borda);
       border-radius: var(--raio);
-      min-height: 260px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--texto-suave);
-      font-size: 0.85rem;
-      text-align: center;
-      padding: 16px;
+      box-shadow: 0 1px 3px rgba(8, 63, 137, 0.06);
+      padding: 14px;
+    }
+
+    .foto-card img {
+      width: 100%;
+      border-radius: calc(var(--raio) - 2px);
     }
 
     /* Seções */
@@ -183,11 +187,25 @@
     }
 
     section h2 {
-      font-size: 1.5rem;
+      position: relative;
+      font-size: 1.4rem;
       color: var(--azul);
       font-weight: 700;
+      letter-spacing: -0.01em;
       margin-bottom: 20px;
+      padding-left: 16px;
       line-height: 1.3;
+    }
+
+    section h2::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.15em;
+      bottom: 0.15em;
+      width: 4px;
+      background: var(--azul);
+      border-radius: 2px;
     }
 
     .texto-central {
@@ -294,6 +312,96 @@
       margin-top: 2px;
     }
 
+    /* Galeria em carrossel */
+    .carrossel {
+      position: relative;
+      margin-top: 24px;
+    }
+
+    .carrossel-viewport {
+      overflow: hidden;
+      border-radius: var(--raio);
+      border: 1px solid var(--borda);
+      background: #ffffff;
+    }
+
+    .carrossel-trilho {
+      display: flex;
+      list-style: none;
+      transition: transform 0.35s ease;
+    }
+
+    .carrossel-slide {
+      flex: 0 0 100%;
+      padding: 20px 20px 18px;
+      text-align: center;
+    }
+
+    .carrossel-slide img {
+      width: 100%;
+      height: 240px;
+      object-fit: contain;
+      margin: 0 auto 14px;
+    }
+
+    .carrossel-slide p {
+      color: var(--texto-suave);
+      font-size: 0.9rem;
+    }
+
+    .carrossel-seta {
+      position: absolute;
+      top: 42%;
+      transform: translateY(-50%);
+      background: #ffffff;
+      border: 1px solid var(--borda);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 1px 4px rgba(8, 63, 137, 0.12);
+      padding: 0;
+    }
+
+    .carrossel-seta .icone {
+      width: 18px;
+      height: 18px;
+      stroke-width: 2.2;
+      margin: 0;
+    }
+
+    .carrossel-seta.anterior {
+      left: -4px;
+    }
+
+    .carrossel-seta.proxima {
+      right: -4px;
+    }
+
+    .carrossel-pontos {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .carrossel-pontos button {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: none;
+      background: var(--borda);
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .carrossel-pontos button.ativo {
+      background: var(--azul);
+    }
+
     /* Vídeo */
     .video-wrap {
       margin-top: 24px;
@@ -389,6 +497,10 @@
       margin-bottom: 24px;
     }
 
+    .cta-final h2::before {
+      background: #ffffff;
+    }
+
     .cta-final .btn {
       background: #ffffff;
       color: var(--azul);
@@ -456,12 +568,26 @@
       }
 
       .hero-grid {
+        display: grid;
         grid-template-columns: 1.1fr 0.9fr;
         gap: 48px;
+        align-items: center;
+      }
+
+      .hero-foto {
+        order: 0;
       }
 
       .hero h1 {
-        font-size: 2.6rem;
+        font-size: 2.2rem;
+      }
+
+      .hero .sub {
+        font-size: 1.05rem;
+      }
+
+      .preco {
+        font-size: 1.45rem;
       }
 
       .hero .btn {
@@ -483,6 +609,23 @@
 
       .specs {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      .carrossel-slide img {
+        height: 320px;
+      }
+
+      .carrossel-seta {
+        width: 42px;
+        height: 42px;
+      }
+
+      .carrossel-seta.anterior {
+        left: -20px;
+      }
+
+      .carrossel-seta.proxima {
+        right: -20px;
       }
 
       .barra-compra {
@@ -507,7 +650,6 @@
         <img src="" alt="Logo MedSix">
         MedSix
       </div>
-      <a class="btn btn-pequeno" href="#"><!-- LINK DO CHECKOUT AQUI -->Comprar agora</a>
     </div>
   </header>
 
@@ -516,17 +658,15 @@
     <!-- Hero -->
     <section class="hero">
       <div class="container hero-grid">
-        <div>
+        <div class="hero-foto foto-card">
+          <img src="https://medsix.com.br/wp-content/uploads/2026/07/easy-speak-cilindro-aberto-virado-pra-frente.webp" alt="Válvula EasySpeak vista de frente, com o corpo em policarbonato transparente" loading="eager">
+        </div>
+        <div class="hero-texto">
           <h1>Volte a falar com quem você ama</h1>
           <p class="sub">A válvula EasySpeak ajuda pacientes traqueostomizados a recuperar a fala de forma simples e segura, sempre com acompanhamento de um profissional de saúde.</p>
-          <p class="preco">R$ 800 <span>em até 6x no cartão</span></p>
+          <p class="preco">R$ 800 <span>ou 6x de R$ 133,33 no cartão</span></p>
           <a class="btn" href="#"><!-- LINK DO CHECKOUT AQUI -->Comprar agora</a>
           <p class="nota-pagamento">Compra segura, com registro ativo na ANVISA.</p>
-        </div>
-        <div class="midia-placeholder">
-          <!-- PREENCHER COM FOTO REAL DEPOIS -->
-          <img src="" alt="Foto do produto EasySpeak em fundo branco">
-          Espaço reservado para a foto do produto
         </div>
       </div>
     </section>
@@ -608,14 +748,58 @@
       </div>
     </section>
 
+    <!-- Galeria de fotos -->
+    <section class="galeria">
+      <div class="container">
+        <h2>Conheça a EasySpeak de perto</h2>
+        <div class="carrossel" id="carrossel">
+          <div class="carrossel-viewport">
+            <ul class="carrossel-trilho" id="carrosselTrilho">
+              <li class="carrossel-slide">
+                <img src="https://medsix.com.br/wp-content/uploads/2026/07/speak-dentro-do-estojo-aberto.webp" alt="Válvula EasySpeak dentro do estojo aberto" loading="lazy">
+                <p>A válvula sai da embalagem já acomodada no estojo de armazenamento.</p>
+              </li>
+              <li class="carrossel-slide">
+                <img src="https://medsix.com.br/wp-content/uploads/2026/07/ao-lado-do-estojo-fechado.webp" alt="Válvula EasySpeak ao lado do estojo fechado" loading="lazy">
+                <p>Estojo fechado, prático para guardar a válvula entre os usos.</p>
+              </li>
+              <li class="carrossel-slide">
+                <img src="https://medsix.com.br/wp-content/uploads/2026/07/easy-speak-cilindro-aberto-virado-pra-frente.webp" alt="Vista frontal do cilindro da válvula EasySpeak" loading="lazy">
+                <p>Vista frontal do corpo em policarbonato transparente.</p>
+              </li>
+              <li class="carrossel-slide">
+                <img src="https://medsix.com.br/wp-content/uploads/2026/07/easy-speak-com-o-estojo-ao-lado.webp" alt="Válvula EasySpeak com o estojo de armazenamento ao lado" loading="lazy">
+                <p>A válvula acompanha estojo próprio de armazenamento.</p>
+              </li>
+              <li class="carrossel-slide">
+                <img src="https://medsix.com.br/wp-content/uploads/2026/07/easyspeak-cilindro-aberto-virado-pra-baixo.webp" alt="Cilindro da válvula EasySpeak virado para baixo" loading="lazy">
+                <p>Outro ângulo do cilindro, com a válvula virada para baixo.</p>
+              </li>
+              <li class="carrossel-slide">
+                <img src="https://medsix.com.br/wp-content/uploads/2026/07/easyspeak-cilindro-aberto-virado-pra-cima.webp" alt="Cilindro da válvula EasySpeak virado para cima" loading="lazy">
+                <p>Outro ângulo do cilindro, com a válvula virada para cima.</p>
+              </li>
+            </ul>
+          </div>
+          <button type="button" class="carrossel-seta anterior" aria-label="Ver foto anterior">
+            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+          </button>
+          <button type="button" class="carrossel-seta proxima" aria-label="Ver próxima foto">
+            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+          <div class="carrossel-pontos" id="carrosselPontos"></div>
+        </div>
+      </div>
+    </section>
+
     <!-- Vídeo demonstrativo -->
     <section>
       <div class="container">
         <h2>Veja como funciona na prática</h2>
         <div class="video-wrap">
-          <video autoplay loop muted playsinline poster="PREENCHER_URL_IMAGEM_CAPA">
-            <source src="PREENCHER_URL_VIDEO.webm" type="video/webm">
-            <source src="PREENCHER_URL_VIDEO.mp4" type="video/mp4">
+          <video autoplay loop muted playsinline poster="https://medsix.com.br/wp-content/uploads/2026/07/easy-speak-com-o-estojo-ao-lado.webp">
+            <source src="https://medsix.com.br/wp-content/uploads/2026/07/video-funcionamento-EasySpeak-V1_1.webm" type="video/webm">
+            <source src="https://medsix.com.br/wp-content/uploads/2026/07/video-funcionamento-EasySpeak-V1.mp4" type="video/mp4">
             Seu navegador não suporta vídeos nativos.
           </video>
         </div>
@@ -703,7 +887,7 @@
     <section class="cta-final">
       <div class="container">
         <h2>Fale com quem você ama</h2>
-        <a class="btn" href="#"><!-- LINK DO CHECKOUT AQUI -->Comprar agora, em até 6x no cartão</a>
+        <a class="btn" href="#"><!-- LINK DO CHECKOUT AQUI -->Comprar agora, em 6x de R$ 133,33</a>
       </div>
     </section>
 
@@ -720,7 +904,7 @@
   <div class="barra-compra">
     <div class="preco-barra">
       R$ 800
-      <small>em até 6x no cartão</small>
+      <small>6x de R$ 133,33 no cartão</small>
     </div>
     <a class="btn" href="#"><!-- LINK DO CHECKOUT AQUI -->Comprar agora</a>
   </div>
@@ -734,6 +918,56 @@
         item.classList.toggle('aberto', !aberto);
       });
     });
+
+    (function () {
+      var trilho = document.getElementById('carrosselTrilho');
+      var pontosContainer = document.getElementById('carrosselPontos');
+      if (!trilho || !pontosContainer) return;
+
+      var slides = trilho.querySelectorAll('.carrossel-slide');
+      var indiceAtual = 0;
+
+      slides.forEach(function (_, i) {
+        var ponto = document.createElement('button');
+        ponto.type = 'button';
+        ponto.setAttribute('aria-label', 'Ir para a foto ' + (i + 1));
+        if (i === 0) ponto.classList.add('ativo');
+        ponto.addEventListener('click', function () {
+          irPara(i);
+        });
+        pontosContainer.appendChild(ponto);
+      });
+
+      var pontos = pontosContainer.querySelectorAll('button');
+
+      function irPara(indice) {
+        indiceAtual = (indice + slides.length) % slides.length;
+        trilho.style.transform = 'translateX(-' + (indiceAtual * 100) + '%)';
+        pontos.forEach(function (ponto, i) {
+          ponto.classList.toggle('ativo', i === indiceAtual);
+        });
+      }
+
+      var setaAnterior = document.querySelector('.carrossel-seta.anterior');
+      var setaProxima = document.querySelector('.carrossel-seta.proxima');
+      if (setaAnterior) setaAnterior.addEventListener('click', function () { irPara(indiceAtual - 1); });
+      if (setaProxima) setaProxima.addEventListener('click', function () { irPara(indiceAtual + 1); });
+
+      var toqueInicioX = null;
+      var viewport = document.querySelector('.carrossel-viewport');
+      if (viewport) {
+        viewport.addEventListener('touchstart', function (e) {
+          toqueInicioX = e.touches[0].clientX;
+        }, { passive: true });
+        viewport.addEventListener('touchend', function (e) {
+          if (toqueInicioX === null) return;
+          var diferenca = e.changedTouches[0].clientX - toqueInicioX;
+          if (diferenca > 40) irPara(indiceAtual - 1);
+          if (diferenca < -40) irPara(indiceAtual + 1);
+          toqueInicioX = null;
+        });
+      }
+    })();
   </script>
 
 </body>
