@@ -285,31 +285,26 @@
       max-width: 46em;
     }
 
-    /* Especificações */
-    .specs {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-      margin-top: 24px;
-      list-style: none;
-    }
-
-    .specs li {
-      background: #ffffff;
-      border: 1px solid var(--borda);
-      border-radius: var(--raio);
-      padding: 14px 18px;
-      font-size: 0.95rem;
+    /* Especificações em carrossel */
+    .carrossel-slide-spec {
+      flex: 0 0 100%;
+      padding: 36px 32px;
       display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      color: var(--texto);
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 12px;
     }
 
-    .specs .icone {
-      width: 20px;
-      height: 20px;
-      margin-top: 2px;
+    .carrossel-slide-spec .icone {
+      width: 28px;
+      height: 28px;
+    }
+
+    .carrossel-slide-spec p {
+      font-size: 1rem;
+      color: var(--texto);
+      max-width: 26em;
     }
 
     /* Galeria em carrossel */
@@ -607,8 +602,8 @@
         grid-template-columns: repeat(3, 1fr);
       }
 
-      .specs {
-        grid-template-columns: repeat(2, 1fr);
+      .carrossel-slide-spec p {
+        font-size: 1.15rem;
       }
 
       .carrossel-slide img {
@@ -659,7 +654,7 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-foto foto-card">
-          <img src="https://medsix.com.br/wp-content/uploads/2026/07/easy-speak-cilindro-aberto-virado-pra-frente.webp" alt="Válvula EasySpeak vista de frente, com o corpo em policarbonato transparente" loading="eager">
+          <img src="https://medsix.com.br/wp-content/uploads/2026/07/easy-speak-cilindro-aberto-virado-pra-frente.webp" alt="Válvula EasySpeak vista de frente, com o corpo em policarbonato transparente" loading="eager" onerror="this.closest('.hero-foto').style.display='none'">
         </div>
         <div class="hero-texto">
           <h1>Volte a falar com quem você ama</h1>
@@ -735,16 +730,27 @@
     <section>
       <div class="container">
         <h2>Especificações técnicas</h2>
-        <ul class="specs">
-          <li><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Corpo em policarbonato transparente</li>
-          <li><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Membrana em silicone grau médico</li>
-          <li><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Conexões padrão de 15mm fêmea e 22mm macho, conforme norma ISO 5356 1</li>
-          <li><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Livre de látex e DEHP, material atóxico</li>
-          <li><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Esterilizada por óxido de etileno</li>
-          <li><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Embalagem individual estéril, validade de 3 anos</li>
-          <li><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Acompanha estojo de armazenamento</li>
-          <li><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Uso individual, restrito a um único paciente</li>
-        </ul>
+        <div class="carrossel carrossel-specs" id="carrosselSpecs">
+          <div class="carrossel-viewport">
+            <ul class="carrossel-trilho" id="specsTrilho">
+              <li class="carrossel-slide-spec"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg><p>Corpo em policarbonato transparente</p></li>
+              <li class="carrossel-slide-spec"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg><p>Membrana em silicone grau médico</p></li>
+              <li class="carrossel-slide-spec"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg><p>Conexões padrão de 15mm fêmea e 22mm macho, conforme norma ISO 5356 1</p></li>
+              <li class="carrossel-slide-spec"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg><p>Livre de látex e DEHP, material atóxico</p></li>
+              <li class="carrossel-slide-spec"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg><p>Esterilizada por óxido de etileno</p></li>
+              <li class="carrossel-slide-spec"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg><p>Embalagem individual estéril, validade de 3 anos</p></li>
+              <li class="carrossel-slide-spec"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg><p>Acompanha estojo de armazenamento</p></li>
+              <li class="carrossel-slide-spec"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg><p>Uso individual, restrito a um único paciente</p></li>
+            </ul>
+          </div>
+          <button type="button" class="carrossel-seta anterior" aria-label="Ver especificação anterior">
+            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+          </button>
+          <button type="button" class="carrossel-seta proxima" aria-label="Ver próxima especificação">
+            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+          <div class="carrossel-pontos" id="specsPontos"></div>
+        </div>
       </div>
     </section>
 
@@ -756,27 +762,27 @@
           <div class="carrossel-viewport">
             <ul class="carrossel-trilho" id="carrosselTrilho">
               <li class="carrossel-slide">
-                <img src="https://medsix.com.br/wp-content/uploads/2026/07/speak-dentro-do-estojo-aberto.webp" alt="Válvula EasySpeak dentro do estojo aberto" loading="lazy">
+                <img src="https://medsix.com.br/wp-content/uploads/2026/07/speak-dentro-do-estojo-aberto.webp" alt="Válvula EasySpeak dentro do estojo aberto" loading="lazy" onerror="this.style.display='none'">
                 <p>A válvula sai da embalagem já acomodada no estojo de armazenamento.</p>
               </li>
               <li class="carrossel-slide">
-                <img src="https://medsix.com.br/wp-content/uploads/2026/07/ao-lado-do-estojo-fechado.webp" alt="Válvula EasySpeak ao lado do estojo fechado" loading="lazy">
+                <img src="https://medsix.com.br/wp-content/uploads/2026/07/ao-lado-do-estojo-fechado.webp" alt="Válvula EasySpeak ao lado do estojo fechado" loading="lazy" onerror="this.style.display='none'">
                 <p>Estojo fechado, prático para guardar a válvula entre os usos.</p>
               </li>
               <li class="carrossel-slide">
-                <img src="https://medsix.com.br/wp-content/uploads/2026/07/easy-speak-cilindro-aberto-virado-pra-frente.webp" alt="Vista frontal do cilindro da válvula EasySpeak" loading="lazy">
+                <img src="https://medsix.com.br/wp-content/uploads/2026/07/easy-speak-cilindro-aberto-virado-pra-frente.webp" alt="Vista frontal do cilindro da válvula EasySpeak" loading="lazy" onerror="this.style.display='none'">
                 <p>Vista frontal do corpo em policarbonato transparente.</p>
               </li>
               <li class="carrossel-slide">
-                <img src="https://medsix.com.br/wp-content/uploads/2026/07/easy-speak-com-o-estojo-ao-lado.webp" alt="Válvula EasySpeak com o estojo de armazenamento ao lado" loading="lazy">
+                <img src="https://medsix.com.br/wp-content/uploads/2026/07/easy-speak-com-o-estojo-ao-lado.webp" alt="Válvula EasySpeak com o estojo de armazenamento ao lado" loading="lazy" onerror="this.style.display='none'">
                 <p>A válvula acompanha estojo próprio de armazenamento.</p>
               </li>
               <li class="carrossel-slide">
-                <img src="https://medsix.com.br/wp-content/uploads/2026/07/easyspeak-cilindro-aberto-virado-pra-baixo.webp" alt="Cilindro da válvula EasySpeak virado para baixo" loading="lazy">
+                <img src="https://medsix.com.br/wp-content/uploads/2026/07/easyspeak-cilindro-aberto-virado-pra-baixo.webp" alt="Cilindro da válvula EasySpeak virado para baixo" loading="lazy" onerror="this.style.display='none'">
                 <p>Outro ângulo do cilindro, com a válvula virada para baixo.</p>
               </li>
               <li class="carrossel-slide">
-                <img src="https://medsix.com.br/wp-content/uploads/2026/07/easyspeak-cilindro-aberto-virado-pra-cima.webp" alt="Cilindro da válvula EasySpeak virado para cima" loading="lazy">
+                <img src="https://medsix.com.br/wp-content/uploads/2026/07/easyspeak-cilindro-aberto-virado-pra-cima.webp" alt="Cilindro da válvula EasySpeak virado para cima" loading="lazy" onerror="this.style.display='none'">
                 <p>Outro ângulo do cilindro, com a válvula virada para cima.</p>
               </li>
             </ul>
@@ -919,21 +925,24 @@
       });
     });
 
-    (function () {
-      var trilho = document.getElementById('carrosselTrilho');
-      var pontosContainer = document.getElementById('carrosselPontos');
-      if (!trilho || !pontosContainer) return;
+    function iniciarCarrossel(containerId, trilhoId, pontosId, rotuloPonto, autoplayMs) {
+      var container = document.getElementById(containerId);
+      var trilho = document.getElementById(trilhoId);
+      var pontosContainer = document.getElementById(pontosId);
+      if (!container || !trilho || !pontosContainer) return;
 
-      var slides = trilho.querySelectorAll('.carrossel-slide');
+      var slides = trilho.children;
       var indiceAtual = 0;
+      var temporizador = null;
 
-      slides.forEach(function (_, i) {
+      Array.prototype.forEach.call(slides, function (_, i) {
         var ponto = document.createElement('button');
         ponto.type = 'button';
-        ponto.setAttribute('aria-label', 'Ir para a foto ' + (i + 1));
+        ponto.setAttribute('aria-label', rotuloPonto + ' ' + (i + 1));
         if (i === 0) ponto.classList.add('ativo');
         ponto.addEventListener('click', function () {
           irPara(i);
+          reiniciarAutoplay();
         });
         pontosContainer.appendChild(ponto);
       });
@@ -943,18 +952,24 @@
       function irPara(indice) {
         indiceAtual = (indice + slides.length) % slides.length;
         trilho.style.transform = 'translateX(-' + (indiceAtual * 100) + '%)';
-        pontos.forEach(function (ponto, i) {
+        Array.prototype.forEach.call(pontos, function (ponto, i) {
           ponto.classList.toggle('ativo', i === indiceAtual);
         });
       }
 
-      var setaAnterior = document.querySelector('.carrossel-seta.anterior');
-      var setaProxima = document.querySelector('.carrossel-seta.proxima');
-      if (setaAnterior) setaAnterior.addEventListener('click', function () { irPara(indiceAtual - 1); });
-      if (setaProxima) setaProxima.addEventListener('click', function () { irPara(indiceAtual + 1); });
+      function reiniciarAutoplay() {
+        if (!autoplayMs) return;
+        if (temporizador) clearInterval(temporizador);
+        temporizador = setInterval(function () { irPara(indiceAtual + 1); }, autoplayMs);
+      }
+
+      var setaAnterior = container.querySelector('.carrossel-seta.anterior');
+      var setaProxima = container.querySelector('.carrossel-seta.proxima');
+      if (setaAnterior) setaAnterior.addEventListener('click', function () { irPara(indiceAtual - 1); reiniciarAutoplay(); });
+      if (setaProxima) setaProxima.addEventListener('click', function () { irPara(indiceAtual + 1); reiniciarAutoplay(); });
 
       var toqueInicioX = null;
-      var viewport = document.querySelector('.carrossel-viewport');
+      var viewport = container.querySelector('.carrossel-viewport');
       if (viewport) {
         viewport.addEventListener('touchstart', function (e) {
           toqueInicioX = e.touches[0].clientX;
@@ -965,9 +980,15 @@
           if (diferenca > 40) irPara(indiceAtual - 1);
           if (diferenca < -40) irPara(indiceAtual + 1);
           toqueInicioX = null;
+          reiniciarAutoplay();
         });
       }
-    })();
+
+      reiniciarAutoplay();
+    }
+
+    iniciarCarrossel('carrossel', 'carrosselTrilho', 'carrosselPontos', 'Ir para a foto');
+    iniciarCarrossel('carrosselSpecs', 'specsTrilho', 'specsPontos', 'Ir para a especificação', 3500);
   </script>
 
 </body>
