@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Válvula de fala EasySpeak para pacientes traqueostomizados. Registro ANVISA, material de grau médico, uso sempre com acompanhamento profissional.">
+  <title>EasySpeak, válvula de fala para traqueostomia | MedSix</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --azul: #083f89;
+      --azul-escuro: #062f66;
+      --texto: #333a45;
+      --texto-suave: #5a6472;
+      --fundo: #ffffff;
+      --fundo-suave: #f6f8fb;
+      --borda: #e3e8ef;
+      --raio: 8px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+      color: var(--texto);
+      background: var(--fundo);
+      line-height: 1.6;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    img[src=""] {
+      display: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Botões */
+    .btn {
+      display: inline-block;
+      background: var(--azul);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 14px 28px;
+      border-radius: var(--raio);
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.2s ease;
+    }
+
+    .btn:hover,
+    .btn:focus {
+      background: var(--azul-escuro);
+    }
+
+    .btn.btn-pequeno {
+      padding: 10px 18px;
+      font-size: 0.9rem;
+    }
+
+    /* Cabeçalho */
+    .cabecalho {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.97);
+      border-bottom: 1px solid var(--borda);
+    }
+
+    .cabecalho-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .marca {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--azul);
+      letter-spacing: 0.01em;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 48px 0 40px;
+      background: var(--fundo-suave);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      line-height: 1.2;
+      color: var(--azul);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .hero .sub {
+      font-size: 1.05rem;
+      color: var(--texto-suave);
+      margin-bottom: 24px;
+      max-width: 34em;
+    }
+
+    .preco {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--texto);
+      margin-bottom: 6px;
+    }
+
+    .preco span {
+      font-weight: 400;
+      font-size: 1rem;
+      color: var(--texto-suave);
+    }
+
+    .hero .btn {
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    .nota-pagamento {
+      font-size: 0.85rem;
+      color: var(--texto-suave);
+      margin-top: 10px;
+    }
+
+    .midia-placeholder {
+      background: #ffffff;
+      border: 1px dashed var(--borda);
+      border-radius: var(--raio);
+      min-height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--texto-suave);
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 16px;
+    }
+
+    /* Seções */
+    section {
+      padding: 48px 0;
+    }
+
+    section h2 {
+      font-size: 1.5rem;
+      color: var(--azul);
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    .texto-central {
+      max-width: 46em;
+    }
+
+    /* Cards genéricos */
+    .grid-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--borda);
+      border-radius: var(--raio);
+      padding: 24px;
+      box-shadow: 0 1px 3px rgba(8, 63, 137, 0.06);
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      color: var(--azul);
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card p {
+      color: var(--texto-suave);
+      font-size: 0.95rem;
+    }
+
+    .icone {
+      width: 26px;
+      height: 26px;
+      flex-shrink: 0;
+      stroke: var(--azul);
+      stroke-width: 1.8;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Bloco de confiança */
+    .confianca {
+      background: var(--fundo-suave);
+    }
+
+    .badges {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .badge {
+      background: #ffffff;
+      border: 1px solid var(--borda);
+      border-radius: var(--raio);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--texto);
+    }
+
+    .linha-historia {
+      color: var(--texto-suave);
+      font-size: 0.95rem;
+      max-width: 46em;
+    }
+
+    /* Especificações */
+    .specs {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 24px;
+      list-style: none;
+    }
+
+    .specs li {
+      background: #ffffff;
+      border: 1px solid var(--borda);
+      border-radius: var(--raio);
+      padding: 14px 18px;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--texto);
+    }
+
+    .specs .icone {
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+    }
+
+    /* Vídeo */
+    .video-wrap {
+      margin-top: 24px;
+      border-radius: var(--raio);
+      overflow: hidden;
+      border: 1px solid var(--borda);
+      background: var(--fundo-suave);
+    }
+
+    .video-wrap video {
+      width: 100%;
+      display: block;
+    }
+
+    /* Depoimentos */
+    .depoimentos {
+      background: var(--fundo-suave);
+    }
+
+    .depoimento p {
+      font-style: italic;
+      color: var(--texto-suave);
+      font-size: 0.9rem;
+    }
+
+    /* FAQ */
+    .faq-item {
+      border: 1px solid var(--borda);
+      border-radius: var(--raio);
+      margin-bottom: 10px;
+      background: #ffffff;
+      overflow: hidden;
+    }
+
+    .faq-pergunta {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--texto);
+      padding: 18px 48px 18px 20px;
+      cursor: pointer;
+      position: relative;
+      line-height: 1.4;
+    }
+
+    .faq-pergunta::after {
+      content: "";
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      width: 10px;
+      height: 10px;
+      border-right: 2px solid var(--azul);
+      border-bottom: 2px solid var(--azul);
+      transform: translateY(-70%) rotate(45deg);
+      transition: transform 0.2s ease;
+    }
+
+    .faq-pergunta[aria-expanded="true"]::after {
+      transform: translateY(-30%) rotate(225deg);
+    }
+
+    .faq-resposta {
+      display: none;
+      padding: 0 20px 18px;
+      color: var(--texto-suave);
+      font-size: 0.95rem;
+    }
+
+    .faq-item.aberto .faq-resposta {
+      display: block;
+    }
+
+    /* Garantia */
+    .garantia .card {
+      max-width: 46em;
+    }
+
+    /* CTA final */
+    .cta-final {
+      background: var(--azul);
+      text-align: center;
+      padding: 56px 0;
+    }
+
+    .cta-final h2 {
+      color: #ffffff;
+      font-size: 1.7rem;
+      margin-bottom: 24px;
+    }
+
+    .cta-final .btn {
+      background: #ffffff;
+      color: var(--azul);
+      font-size: 1.05rem;
+    }
+
+    .cta-final .btn:hover,
+    .cta-final .btn:focus {
+      background: var(--fundo-suave);
+    }
+
+    /* Rodapé */
+    .rodape {
+      padding: 28px 0 90px;
+      background: var(--fundo-suave);
+      border-top: 1px solid var(--borda);
+    }
+
+    .rodape p {
+      font-size: 0.78rem;
+      color: var(--texto-suave);
+      max-width: 60em;
+    }
+
+    /* Barra fixa de compra no mobile */
+    .barra-compra {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      border-top: 1px solid var(--borda);
+      box-shadow: 0 -2px 10px rgba(8, 63, 137, 0.08);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      z-index: 60;
+    }
+
+    .barra-compra .preco-barra {
+      font-weight: 700;
+      font-size: 0.95rem;
+      line-height: 1.3;
+    }
+
+    .barra-compra .preco-barra small {
+      display: block;
+      font-weight: 400;
+      color: var(--texto-suave);
+      font-size: 0.75rem;
+    }
+
+    .barra-compra .btn {
+      white-space: nowrap;
+      padding: 12px 20px;
+      font-size: 0.9rem;
+    }
+
+    /* Desktop */
+    @media (min-width: 768px) {
+      .hero {
+        padding: 72px 0 64px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 48px;
+      }
+
+      .hero h1 {
+        font-size: 2.6rem;
+      }
+
+      .hero .btn {
+        width: auto;
+        min-width: 260px;
+      }
+
+      section h2 {
+        font-size: 1.8rem;
+      }
+
+      .grid-cards.tres {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .badges {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .specs {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .barra-compra {
+        display: none;
+      }
+
+      .rodape {
+        padding: 28px 0;
+      }
+    }
+  </style>
+
+  <!-- INSERIR TAG DE CONVERSÃO GOOGLE ADS AQUI -->
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header class="cabecalho">
+    <div class="cabecalho-inner">
+      <div class="marca">
+        <!-- PREENCHER COM LOGO REAL DEPOIS -->
+        <img src="" alt="Logo MedSix">
+        MedSix
+      </div>
+      <a class="btn btn-pequeno" href="#"><!-- LINK DO CHECKOUT AQUI -->Comprar agora</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1>Volte a falar com quem você ama</h1>
+          <p class="sub">A válvula EasySpeak ajuda pacientes traqueostomizados a recuperar a fala de forma simples e segura, sempre com acompanhamento de um profissional de saúde.</p>
+          <p class="preco">R$ 800 <span>em até 6x no cartão</span></p>
+          <a class="btn" href="#"><!-- LINK DO CHECKOUT AQUI -->Comprar agora</a>
+          <p class="nota-pagamento">Compra segura, com registro ativo na ANVISA.</p>
+        </div>
+        <div class="midia-placeholder">
+          <!-- PREENCHER COM FOTO REAL DEPOIS -->
+          <img src="" alt="Foto do produto EasySpeak em fundo branco">
+          Espaço reservado para a foto do produto
+        </div>
+      </div>
+    </section>
+
+    <!-- O que é e para quem serve -->
+    <section>
+      <div class="container">
+        <h2>O que é a EasySpeak e para quem ela serve</h2>
+        <p class="texto-central">A EasySpeak é uma válvula de fala e deglutição para cânula de traqueostomia. Ela é indicada para pacientes conscientes e estáveis, com capacidade para vocalizar, sempre sob prescrição e supervisão de um profissional de saúde habilitado. Ela ajuda a restabelecer a comunicação oral, favorece a reabilitação da deglutição e contribui para o processo de recuperação respiratória.</p>
+      </div>
+    </section>
+
+    <!-- Como funciona -->
+    <section>
+      <div class="container">
+        <h2>Como funciona</h2>
+        <div class="grid-cards tres">
+          <div class="card">
+            <h3>
+              <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h12"/><path d="M12 6l-6 6 6 6"/></svg>
+              Na inspiração
+            </h3>
+            <p>O ar entra normalmente pela cânula, sem esforço adicional para o paciente.</p>
+          </div>
+          <div class="card">
+            <h3>
+              <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h12"/><path d="M12 6l6 6-6 6"/></svg>
+              Na expiração
+            </h3>
+            <p>A válvula fecha automaticamente e direciona o ar para as vias aéreas superiores.</p>
+          </div>
+          <div class="card">
+            <h3>
+              <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a4 4 0 0 1 4 4v3a4 4 0 0 1-8 0V7a4 4 0 0 1 4-4z"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg>
+              O resultado
+            </h3>
+            <p>O ar passa pela laringe e permite a emissão da voz, além de auxiliar na reabilitação da deglutição.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bloco de confiança -->
+    <section class="confianca">
+      <div class="container">
+        <h2>Segurança e procedência</h2>
+        <div class="badges">
+          <div class="badge">
+            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+            Registro ANVISA 82417969017
+          </div>
+          <div class="badge">
+            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="10" r="6"/><path d="M9 15l-1.5 6L12 19l4.5 2L15 15"/></svg>
+            Certificação ISO 13485 de gestão da qualidade
+          </div>
+          <div class="badge">
+            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>
+            Livre de látex, PVC e DEHP
+          </div>
+        </div>
+        <p class="linha-historia">A MedSix atua no mercado de dispositivos médicos desde 1997, chegando a quase 30 anos de história em 2027.</p>
+      </div>
+    </section>
+
+    <!-- Especificações técnicas -->
+    <section>
+      <div class="container">
+        <h2>Especificações técnicas</h2>
+        <ul class="specs">
+          <li><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Corpo em policarbonato transparente</li>
+          <li><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Membrana em silicone grau médico</li>
+          <li><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Conexões padrão de 15mm fêmea e 22mm macho, conforme norma ISO 5356 1</li>
+          <li><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Livre de látex e DEHP, material atóxico</li>
+          <li><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Esterilizada por óxido de etileno</li>
+          <li><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Embalagem individual estéril, validade de 3 anos</li>
+          <li><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Acompanha estojo de armazenamento</li>
+          <li><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Uso individual, restrito a um único paciente</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Vídeo demonstrativo -->
+    <section>
+      <div class="container">
+        <h2>Veja como funciona na prática</h2>
+        <div class="video-wrap">
+          <video autoplay loop muted playsinline poster="PREENCHER_URL_IMAGEM_CAPA">
+            <source src="PREENCHER_URL_VIDEO.webm" type="video/webm">
+            <source src="PREENCHER_URL_VIDEO.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos nativos.
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="depoimentos">
+      <div class="container">
+        <h2>Quem usa, recomenda</h2>
+        <div class="grid-cards tres">
+          <div class="card depoimento">
+            <!-- PREENCHER COM PRINT REAL DEPOIS -->
+            <img src="" alt="Print de depoimento real de paciente ou cuidador" loading="lazy">
+            <p>Espaço reservado para depoimento real de paciente ou cuidador. Preencher com print ou relato real antes da publicação.</p>
+          </div>
+          <div class="card depoimento">
+            <!-- PREENCHER COM PRINT REAL DEPOIS -->
+            <img src="" alt="Print de depoimento real de paciente ou cuidador" loading="lazy">
+            <p>Espaço reservado para depoimento real de paciente ou cuidador. Preencher com print ou relato real antes da publicação.</p>
+          </div>
+          <div class="card depoimento">
+            <!-- PREENCHER COM PRINT REAL DEPOIS -->
+            <img src="" alt="Print de depoimento real de paciente ou cuidador" loading="lazy">
+            <p>Espaço reservado para depoimento real de paciente ou cuidador. Preencher com print ou relato real antes da publicação.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section>
+      <div class="container">
+        <h2>Perguntas frequentes</h2>
+
+        <div class="faq-item">
+          <button class="faq-pergunta" aria-expanded="false" aria-controls="faq1">A válvula serve para qualquer tipo de cânula de traqueostomia?</button>
+          <div class="faq-resposta" id="faq1">
+            <p>A EasySpeak é compatível com cânulas que tenham conector universal de 15mm, com ou sem cuff, desde que o cuff esteja totalmente desinsuflado. Em caso de dúvida, o profissional de saúde responsável pelo paciente pode confirmar a compatibilidade antes da compra.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-pergunta" aria-expanded="false" aria-controls="faq2">Preciso de indicação médica para usar?</button>
+          <div class="faq-resposta" id="faq2">
+            <p>Sim. O uso deve sempre ser orientado e supervisionado por um profissional de saúde habilitado, que vai avaliar se o paciente tem condição clínica para tolerar o redirecionamento do fluxo de ar.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-pergunta" aria-expanded="false" aria-controls="faq3">Quanto tempo dura a válvula?</button>
+          <div class="faq-resposta" id="faq3">
+            <p>A vida útil costuma variar entre 2 e 6 meses de uso contínuo, podendo ser menor em pacientes com secreção mais abundante ou quando a limpeza não é feita corretamente. A limpeza diária ajuda a prolongar a durabilidade do dispositivo.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-pergunta" aria-expanded="false" aria-controls="faq4">Posso usar a mesma válvula em mais de um paciente?</button>
+          <div class="faq-resposta" id="faq4">
+            <p>Não. A EasySpeak é de uso individual, exclusiva para um único paciente, conforme especificação do fabricante.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-pergunta" aria-expanded="false" aria-controls="faq5">Por que a EasySpeak custa esse valor?</button>
+          <div class="faq-resposta" id="faq5">
+            <p>O preço reflete o material de grau médico, o processo de esterilização por óxido de etileno e o cumprimento das normas técnicas exigidas para dispositivos médicos Classe II, com registro ativo na ANVISA. Você está comprando um dispositivo com procedência e conformidade regulatória comprovadas.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Garantia e política de troca -->
+    <section class="garantia">
+      <div class="container">
+        <h2>Garantia e política de troca</h2>
+        <div class="card">
+          <p>Direito de arrependimento: conforme o Código de Defesa do Consumidor, você tem até 7 dias corridos após o recebimento para solicitar a devolução, desde que a embalagem estéril individual esteja lacrada e intacta. Em caso de defeito de fabricação identificado antes da abertura da embalagem, a troca é garantida.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA final -->
+    <section class="cta-final">
+      <div class="container">
+        <h2>Fale com quem você ama</h2>
+        <a class="btn" href="#"><!-- LINK DO CHECKOUT AQUI -->Comprar agora, em até 6x no cartão</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="rodape">
+    <div class="container">
+      <p>Fabricado por Plastex do Brasil Indústria e Comércio Ltda. AFE 8.24179 6. Responsável técnica: Stella Maris Alves Branco Frossard, CRO/SP 42594. Registro ANVISA 82417969017. Distribuído por MedSix.</p>
+    </div>
+  </footer>
+
+  <!-- Barra fixa de compra (mobile) -->
+  <div class="barra-compra">
+    <div class="preco-barra">
+      R$ 800
+      <small>em até 6x no cartão</small>
+    </div>
+    <a class="btn" href="#"><!-- LINK DO CHECKOUT AQUI -->Comprar agora</a>
+  </div>
+
+  <script>
+    document.querySelectorAll('.faq-pergunta').forEach(function (botao) {
+      botao.addEventListener('click', function () {
+        var item = botao.closest('.faq-item');
+        var aberto = botao.getAttribute('aria-expanded') === 'true';
+        botao.setAttribute('aria-expanded', aberto ? 'false' : 'true');
+        item.classList.toggle('aberto', !aberto);
+      });
+    });
+  </script>
+
+</body>
+</html>
