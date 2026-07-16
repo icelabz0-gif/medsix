@@ -14,6 +14,7 @@
     :root {
       --azul: #083f89;
       --azul-escuro: #062f66;
+      --azul-claro: #e8eef7;
       --texto: #333a45;
       --texto-suave: #5a6472;
       --fundo: #ffffff;
@@ -59,12 +60,16 @@
 
     /* Botões */
     .btn {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
       background: var(--azul);
       color: #ffffff;
       text-decoration: none;
       font-weight: 600;
       font-size: 1rem;
+      letter-spacing: 0.01em;
       padding: 14px 28px;
       border-radius: var(--raio);
       border: none;
@@ -78,9 +83,27 @@
       background: var(--azul-escuro);
     }
 
+    .btn .icone {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      stroke-width: 2.4;
+      margin: 0;
+    }
+
     .btn.btn-pequeno {
       padding: 10px 18px;
       font-size: 0.9rem;
+    }
+
+    .btn-claro {
+      background: #ffffff;
+      color: var(--azul);
+    }
+
+    .btn-claro:hover,
+    .btn-claro:focus {
+      background: var(--azul-claro);
     }
 
     /* Cabeçalho */
@@ -112,8 +135,8 @@
 
     /* Hero */
     .hero {
-      padding: 48px 0 40px;
-      background: var(--fundo-suave);
+      padding: 40px 0 36px;
+      background: linear-gradient(175deg, var(--azul) 0%, var(--azul-escuro) 100%);
     }
 
     .hero-grid {
@@ -128,18 +151,40 @@
       width: 100%;
     }
 
+    .selo-topo {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+
+    .selo-topo .icone {
+      width: 14px;
+      height: 14px;
+      stroke: #ffffff;
+      margin: 0;
+    }
+
     .hero h1 {
       font-size: 1.6rem;
       line-height: 1.25;
       letter-spacing: -0.01em;
-      color: var(--azul);
+      color: #ffffff;
       font-weight: 700;
       margin-bottom: 14px;
     }
 
     .hero .sub {
       font-size: 0.95rem;
-      color: var(--texto-suave);
+      color: rgba(255, 255, 255, 0.82);
       margin-bottom: 20px;
       max-width: 34em;
     }
@@ -147,14 +192,14 @@
     .preco {
       font-size: 1.2rem;
       font-weight: 700;
-      color: var(--texto);
+      color: #ffffff;
       margin-bottom: 6px;
     }
 
     .preco span {
       font-weight: 400;
       font-size: 1rem;
-      color: var(--texto-suave);
+      color: rgba(255, 255, 255, 0.72);
     }
 
     .hero .btn {
@@ -164,15 +209,39 @@
 
     .nota-pagamento {
       font-size: 0.85rem;
-      color: var(--texto-suave);
+      color: rgba(255, 255, 255, 0.72);
       margin-top: 10px;
+    }
+
+    .confianca-rapida {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 16px;
+    }
+
+    .confianca-rapida li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .confianca-rapida .icone {
+      width: 15px;
+      height: 15px;
+      stroke: #ffffff;
+      margin: 0;
+      flex-shrink: 0;
     }
 
     .foto-card {
       background: #ffffff;
-      border: 1px solid var(--borda);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: var(--raio);
-      box-shadow: 0 1px 3px rgba(8, 63, 137, 0.06);
+      box-shadow: 0 16px 32px rgba(3, 15, 40, 0.28);
       padding: 14px;
     }
 
@@ -212,6 +281,10 @@
       max-width: 46em;
     }
 
+    .fundo-alt {
+      background: var(--fundo-suave);
+    }
+
     /* Cards genéricos */
     .grid-cards {
       display: grid;
@@ -221,11 +294,13 @@
     }
 
     .card {
+      position: relative;
       background: #ffffff;
       border: 1px solid var(--borda);
+      border-top: 3px solid var(--azul);
       border-radius: var(--raio);
       padding: 24px;
-      box-shadow: 0 1px 3px rgba(8, 63, 137, 0.06);
+      box-shadow: 0 4px 14px rgba(8, 63, 137, 0.07);
     }
 
     .card h3 {
@@ -241,6 +316,22 @@
     .card p {
       color: var(--texto-suave);
       font-size: 0.95rem;
+    }
+
+    .passo-numero {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--azul-claro);
+      color: var(--azul);
+      font-size: 0.72rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .icone {
@@ -259,11 +350,18 @@
       background: var(--fundo-suave);
     }
 
+    .confianca-intro {
+      max-width: 46em;
+      font-size: 1.05rem;
+      color: var(--texto);
+      margin-bottom: 24px;
+    }
+
     .badges {
       display: grid;
       grid-template-columns: 1fr;
       gap: 12px;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
     .badge {
@@ -273,10 +371,56 @@
       padding: 16px 20px;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       font-weight: 600;
       font-size: 0.95rem;
       color: var(--texto);
+    }
+
+    .badge-icone {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--azul-claro);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .badge-icone .icone {
+      width: 20px;
+      height: 20px;
+      margin: 0;
+    }
+
+    .confianca-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-top: 24px;
+      border-top: 1px solid var(--borda);
+    }
+
+    .estatistica {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .estatistica strong {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--azul);
+      line-height: 1;
+    }
+
+    .estatistica span {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--texto-suave);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
     }
 
     .linha-historia {
@@ -416,6 +560,18 @@
       background: var(--fundo-suave);
     }
 
+    .depoimento {
+      text-align: center;
+    }
+
+    .depoimento .aspas {
+      width: 26px;
+      height: 26px;
+      stroke-width: 1.6;
+      opacity: 0.35;
+      margin: 0 auto 12px;
+    }
+
     .depoimento p {
       font-style: italic;
       color: var(--texto-suave);
@@ -435,37 +591,38 @@
       width: 100%;
       background: none;
       border: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
       text-align: left;
       font-family: inherit;
       font-size: 1rem;
       font-weight: 600;
       color: var(--texto);
-      padding: 18px 48px 18px 20px;
+      padding: 18px 20px;
       cursor: pointer;
-      position: relative;
       line-height: 1.4;
     }
 
-    .faq-pergunta::after {
-      content: "";
-      position: absolute;
-      right: 20px;
-      top: 50%;
-      width: 10px;
-      height: 10px;
-      border-right: 2px solid var(--azul);
-      border-bottom: 2px solid var(--azul);
-      transform: translateY(-70%) rotate(45deg);
+    .faq-seta {
+      width: 18px;
+      height: 18px;
+      stroke-width: 2.4;
+      flex-shrink: 0;
+      margin: 0;
       transition: transform 0.2s ease;
     }
 
-    .faq-pergunta[aria-expanded="true"]::after {
-      transform: translateY(-30%) rotate(225deg);
+    .faq-pergunta[aria-expanded="true"] .faq-seta {
+      transform: rotate(180deg);
     }
 
     .faq-resposta {
       display: none;
-      padding: 0 20px 18px;
+      padding: 4px 20px 20px;
+      border-top: 1px solid var(--borda);
+      margin-top: 2px;
       color: var(--texto-suave);
       font-size: 0.95rem;
     }
@@ -497,14 +654,7 @@
     }
 
     .cta-final .btn {
-      background: #ffffff;
-      color: var(--azul);
       font-size: 1.05rem;
-    }
-
-    .cta-final .btn:hover,
-    .cta-final .btn:focus {
-      background: var(--fundo-suave);
     }
 
     /* Rodapé */
@@ -602,6 +752,12 @@
         grid-template-columns: repeat(3, 1fr);
       }
 
+      .confianca-stats {
+        flex-direction: row;
+        align-items: center;
+        gap: 32px;
+      }
+
       .carrossel-slide-spec p {
         font-size: 1.15rem;
       }
@@ -657,11 +813,51 @@
           <img src="https://medsix.com.br/wp-content/uploads/2026/07/easy-speak-cilindro-aberto-virado-pra-frente.webp" alt="Válvula EasySpeak vista de frente, com o corpo em policarbonato transparente" loading="eager" onerror="this.closest('.hero-foto').style.display='none'">
         </div>
         <div class="hero-texto">
+          <span class="selo-topo">
+            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+            Registro ANVISA ativo
+          </span>
           <h1>Volte a falar com quem você ama</h1>
           <p class="sub">A válvula EasySpeak ajuda pacientes traqueostomizados a recuperar a fala de forma simples e segura, sempre com acompanhamento de um profissional de saúde.</p>
           <p class="preco">R$ 800 <span>ou 6x de R$ 133,33 no cartão</span></p>
-          <a class="btn" href="#"><!-- LINK DO CHECKOUT AQUI -->Comprar agora</a>
-          <p class="nota-pagamento">Compra segura, com registro ativo na ANVISA.</p>
+          <a class="btn btn-claro" href="#"><!-- LINK DO CHECKOUT AQUI -->
+            Comprar agora
+            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          </a>
+          <ul class="confianca-rapida">
+            <li><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Registro ativo na ANVISA</li>
+            <li><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Embalagem individual estéril</li>
+            <li><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Devolução em até 7 dias</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bloco de confiança -->
+    <section class="confianca">
+      <div class="container">
+        <h2>Segurança e procedência</h2>
+        <p class="confianca-intro">Seriedade regulatória não é diferencial, é o mínimo que se espera de um dispositivo médico. Por isso a EasySpeak carrega registro ativo na ANVISA e é fabricada sob a norma ISO 13485.</p>
+        <div class="badges">
+          <div class="badge">
+            <span class="badge-icone"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+            Registro ANVISA 82417969017
+          </div>
+          <div class="badge">
+            <span class="badge-icone"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="10" r="6"/><path d="M9 15l-1.5 6L12 19l4.5 2L15 15"/></svg></span>
+            Certificação ISO 13485 de gestão da qualidade
+          </div>
+          <div class="badge">
+            <span class="badge-icone"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></span>
+            Livre de látex, PVC e DEHP
+          </div>
+        </div>
+        <div class="confianca-stats">
+          <div class="estatistica">
+            <strong>29</strong>
+            <span>anos de mercado em dispositivos médicos</span>
+          </div>
+          <p class="linha-historia">A MedSix atua no mercado de dispositivos médicos desde 1997, chegando a quase 30 anos de história em 2027.</p>
         </div>
       </div>
     </section>
@@ -675,25 +871,28 @@
     </section>
 
     <!-- Como funciona -->
-    <section>
+    <section class="fundo-alt">
       <div class="container">
         <h2>Como funciona</h2>
         <div class="grid-cards tres">
-          <div class="card">
+          <div class="card card-passo">
+            <span class="passo-numero">1</span>
             <h3>
               <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h12"/><path d="M12 6l-6 6 6 6"/></svg>
               Na inspiração
             </h3>
             <p>O ar entra normalmente pela cânula, sem esforço adicional para o paciente.</p>
           </div>
-          <div class="card">
+          <div class="card card-passo">
+            <span class="passo-numero">2</span>
             <h3>
               <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h12"/><path d="M12 6l6 6-6 6"/></svg>
               Na expiração
             </h3>
             <p>A válvula fecha automaticamente e direciona o ar para as vias aéreas superiores.</p>
           </div>
-          <div class="card">
+          <div class="card card-passo">
+            <span class="passo-numero">3</span>
             <h3>
               <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a4 4 0 0 1 4 4v3a4 4 0 0 1-8 0V7a4 4 0 0 1 4-4z"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg>
               O resultado
@@ -701,28 +900,6 @@
             <p>O ar passa pela laringe e permite a emissão da voz, além de auxiliar na reabilitação da deglutição.</p>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Bloco de confiança -->
-    <section class="confianca">
-      <div class="container">
-        <h2>Segurança e procedência</h2>
-        <div class="badges">
-          <div class="badge">
-            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
-            Registro ANVISA 82417969017
-          </div>
-          <div class="badge">
-            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="10" r="6"/><path d="M9 15l-1.5 6L12 19l4.5 2L15 15"/></svg>
-            Certificação ISO 13485 de gestão da qualidade
-          </div>
-          <div class="badge">
-            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>
-            Livre de látex, PVC e DEHP
-          </div>
-        </div>
-        <p class="linha-historia">A MedSix atua no mercado de dispositivos médicos desde 1997, chegando a quase 30 anos de história em 2027.</p>
       </div>
     </section>
 
@@ -755,7 +932,7 @@
     </section>
 
     <!-- Galeria de fotos -->
-    <section class="galeria">
+    <section class="galeria fundo-alt">
       <div class="container">
         <h2>Conheça a EasySpeak de perto</h2>
         <div class="carrossel" id="carrossel">
@@ -818,16 +995,19 @@
         <h2>Quem usa, recomenda</h2>
         <div class="grid-cards tres">
           <div class="card depoimento">
+            <svg class="aspas icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h4v5c0 3 -2 5 -4 5"/><path d="M15 7h4v5c0 3 -2 5 -4 5"/></svg>
             <!-- PREENCHER COM PRINT REAL DEPOIS -->
             <img src="" alt="Print de depoimento real de paciente ou cuidador" loading="lazy">
             <p>Espaço reservado para depoimento real de paciente ou cuidador. Preencher com print ou relato real antes da publicação.</p>
           </div>
           <div class="card depoimento">
+            <svg class="aspas icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h4v5c0 3 -2 5 -4 5"/><path d="M15 7h4v5c0 3 -2 5 -4 5"/></svg>
             <!-- PREENCHER COM PRINT REAL DEPOIS -->
             <img src="" alt="Print de depoimento real de paciente ou cuidador" loading="lazy">
             <p>Espaço reservado para depoimento real de paciente ou cuidador. Preencher com print ou relato real antes da publicação.</p>
           </div>
           <div class="card depoimento">
+            <svg class="aspas icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h4v5c0 3 -2 5 -4 5"/><path d="M15 7h4v5c0 3 -2 5 -4 5"/></svg>
             <!-- PREENCHER COM PRINT REAL DEPOIS -->
             <img src="" alt="Print de depoimento real de paciente ou cuidador" loading="lazy">
             <p>Espaço reservado para depoimento real de paciente ou cuidador. Preencher com print ou relato real antes da publicação.</p>
@@ -842,35 +1022,50 @@
         <h2>Perguntas frequentes</h2>
 
         <div class="faq-item">
-          <button class="faq-pergunta" aria-expanded="false" aria-controls="faq1">A válvula serve para qualquer tipo de cânula de traqueostomia?</button>
+          <button class="faq-pergunta" aria-expanded="false" aria-controls="faq1">
+            <span>A válvula serve para qualquer tipo de cânula de traqueostomia?</span>
+            <svg class="faq-seta icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
           <div class="faq-resposta" id="faq1">
             <p>A EasySpeak é compatível com cânulas que tenham conector universal de 15mm, com ou sem cuff, desde que o cuff esteja totalmente desinsuflado. Em caso de dúvida, o profissional de saúde responsável pelo paciente pode confirmar a compatibilidade antes da compra.</p>
           </div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-pergunta" aria-expanded="false" aria-controls="faq2">Preciso de indicação médica para usar?</button>
+          <button class="faq-pergunta" aria-expanded="false" aria-controls="faq2">
+            <span>Preciso de indicação médica para usar?</span>
+            <svg class="faq-seta icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
           <div class="faq-resposta" id="faq2">
             <p>Sim. O uso deve sempre ser orientado e supervisionado por um profissional de saúde habilitado, que vai avaliar se o paciente tem condição clínica para tolerar o redirecionamento do fluxo de ar.</p>
           </div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-pergunta" aria-expanded="false" aria-controls="faq3">Quanto tempo dura a válvula?</button>
+          <button class="faq-pergunta" aria-expanded="false" aria-controls="faq3">
+            <span>Quanto tempo dura a válvula?</span>
+            <svg class="faq-seta icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
           <div class="faq-resposta" id="faq3">
             <p>A vida útil costuma variar entre 2 e 6 meses de uso contínuo, podendo ser menor em pacientes com secreção mais abundante ou quando a limpeza não é feita corretamente. A limpeza diária ajuda a prolongar a durabilidade do dispositivo.</p>
           </div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-pergunta" aria-expanded="false" aria-controls="faq4">Posso usar a mesma válvula em mais de um paciente?</button>
+          <button class="faq-pergunta" aria-expanded="false" aria-controls="faq4">
+            <span>Posso usar a mesma válvula em mais de um paciente?</span>
+            <svg class="faq-seta icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
           <div class="faq-resposta" id="faq4">
             <p>Não. A EasySpeak é de uso individual, exclusiva para um único paciente, conforme especificação do fabricante.</p>
           </div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-pergunta" aria-expanded="false" aria-controls="faq5">Por que a EasySpeak custa esse valor?</button>
+          <button class="faq-pergunta" aria-expanded="false" aria-controls="faq5">
+            <span>Por que a EasySpeak custa esse valor?</span>
+            <svg class="faq-seta icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
           <div class="faq-resposta" id="faq5">
             <p>O preço reflete o material de grau médico, o processo de esterilização por óxido de etileno e o cumprimento das normas técnicas exigidas para dispositivos médicos Classe II, com registro ativo na ANVISA. Você está comprando um dispositivo com procedência e conformidade regulatória comprovadas.</p>
           </div>
@@ -880,7 +1075,7 @@
     </section>
 
     <!-- Garantia e política de troca -->
-    <section class="garantia">
+    <section class="garantia fundo-alt">
       <div class="container">
         <h2>Garantia e política de troca</h2>
         <div class="card">
@@ -893,7 +1088,10 @@
     <section class="cta-final">
       <div class="container">
         <h2>Fale com quem você ama</h2>
-        <a class="btn" href="#"><!-- LINK DO CHECKOUT AQUI -->Comprar agora, em 6x de R$ 133,33</a>
+        <a class="btn btn-claro" href="#"><!-- LINK DO CHECKOUT AQUI -->
+          Comprar agora, em 6x de R$ 133,33
+          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </a>
       </div>
     </section>
 
