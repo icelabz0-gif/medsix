@@ -567,11 +567,17 @@
       overflow: hidden;
       border: 1px solid var(--borda);
       background: var(--fundo-suave);
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .video-wrap video {
-      width: 100%;
       display: block;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: min(70vh, 480px);
     }
 
     /* Depoimentos */
@@ -770,6 +776,10 @@
 
       .carrossel-seta.proxima {
         right: -20px;
+      }
+
+      .video-wrap video {
+        max-height: min(70vh, 600px);
       }
 
       .rodape {
