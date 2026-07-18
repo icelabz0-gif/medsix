@@ -33,6 +33,10 @@
       scroll-behavior: smooth;
     }
 
+    html, body {
+      overflow-x: hidden;
+    }
+
     body {
       font-family: 'IBM Plex Sans', 'Segoe UI', Arial, sans-serif;
       color: var(--texto);
@@ -40,6 +44,14 @@
       line-height: 1.6;
       font-size: 16px;
       -webkit-font-smoothing: antialiased;
+    }
+
+    /* Faz cada seção ocupar toda a largura real da tela, mesmo dentro de um container mais estreito */
+    main > section,
+    .rodape {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
     }
 
     img {
@@ -112,6 +124,7 @@
       overflow: hidden;
       padding: 40px 0 36px;
       background:
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.35) 26px, rgba(255, 255, 255, 0) 70px),
         radial-gradient(120% 90% at 12% 8%, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0) 45%),
         radial-gradient(90% 80% at 92% 100%, rgba(3, 20, 52, 0.55) 0%, rgba(3, 20, 52, 0) 55%),
         linear-gradient(155deg, #0b4a9e 0%, #083f89 48%, #06346f 100%);
@@ -483,7 +496,7 @@
     /* Especificações em carrossel */
     .carrossel-slide-spec {
       flex: 0 0 100%;
-      padding: 36px 32px;
+      padding: 40px 64px;
       display: flex;
       flex-direction: column;
       align-items: center;
