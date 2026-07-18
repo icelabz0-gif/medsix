@@ -135,8 +135,29 @@
 
     /* Hero */
     .hero {
+      position: relative;
+      overflow: hidden;
       padding: 40px 0 36px;
-      background: linear-gradient(175deg, var(--azul) 0%, var(--azul-escuro) 100%);
+      background:
+        radial-gradient(120% 90% at 12% 8%, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0) 45%),
+        radial-gradient(90% 80% at 92% 100%, rgba(3, 20, 52, 0.55) 0%, rgba(3, 20, 52, 0) 55%),
+        linear-gradient(155deg, #0b4a9e 0%, #083f89 48%, #06346f 100%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.10) 1px, transparent 0);
+      background-size: 22px 22px;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 1;
     }
 
     .hero-grid {
@@ -149,6 +170,11 @@
     .hero-foto {
       order: -1;
       width: 100%;
+    }
+
+    .hero-foto img {
+      width: 100%;
+      filter: drop-shadow(0 18px 30px rgba(3, 15, 40, 0.4));
     }
 
     .selo-topo {
@@ -235,19 +261,6 @@
       stroke: #ffffff;
       margin: 0;
       flex-shrink: 0;
-    }
-
-    .foto-card {
-      background: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: var(--raio);
-      box-shadow: 0 16px 32px rgba(3, 15, 40, 0.28);
-      padding: 14px;
-    }
-
-    .foto-card img {
-      width: 100%;
-      border-radius: calc(var(--raio) - 2px);
     }
 
     /* Seções */
@@ -492,23 +505,29 @@
       position: absolute;
       top: 42%;
       transform: translateY(-50%);
-      background: #ffffff;
-      border: 1px solid var(--borda);
+      background: var(--azul) !important;
+      border: 2px solid #ffffff !important;
       border-radius: 50%;
-      width: 36px;
-      height: 36px;
+      width: 40px;
+      height: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      box-shadow: 0 1px 4px rgba(8, 63, 137, 0.12);
+      box-shadow: 0 4px 12px rgba(6, 47, 102, 0.35);
       padding: 0;
+    }
+
+    .carrossel-seta:hover,
+    .carrossel-seta:focus {
+      background: var(--azul-escuro) !important;
     }
 
     .carrossel-seta .icone {
       width: 18px;
       height: 18px;
-      stroke-width: 2.2;
+      stroke: #ffffff !important;
+      stroke-width: 2.6;
       margin: 0;
     }
 
@@ -589,7 +608,7 @@
 
     .faq-pergunta {
       width: 100%;
-      background: none;
+      background: none !important;
       border: none;
       display: flex;
       align-items: center;
@@ -599,17 +618,27 @@
       font-family: inherit;
       font-size: 1rem;
       font-weight: 600;
-      color: var(--texto);
+      color: var(--texto) !important;
       padding: 18px 20px;
       cursor: pointer;
       line-height: 1.4;
+      white-space: normal;
+    }
+
+    .faq-pergunta span {
+      flex: 1 1 auto;
+      min-width: 0;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
 
     .faq-seta {
       width: 18px;
       height: 18px;
+      stroke: var(--azul);
       stroke-width: 2.4;
-      flex-shrink: 0;
+      flex: 0 0 auto;
       margin: 0;
       transition: transform 0.2s ease;
     }
@@ -659,7 +688,7 @@
 
     /* Rodapé */
     .rodape {
-      padding: 28px 0 90px;
+      padding: 28px 0;
       background: var(--fundo-suave);
       border-top: 1px solid var(--borda);
     }
@@ -668,42 +697,6 @@
       font-size: 0.78rem;
       color: var(--texto-suave);
       max-width: 60em;
-    }
-
-    /* Barra fixa de compra no mobile */
-    .barra-compra {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: #ffffff;
-      border-top: 1px solid var(--borda);
-      box-shadow: 0 -2px 10px rgba(8, 63, 137, 0.08);
-      padding: 10px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      z-index: 60;
-    }
-
-    .barra-compra .preco-barra {
-      font-weight: 700;
-      font-size: 0.95rem;
-      line-height: 1.3;
-    }
-
-    .barra-compra .preco-barra small {
-      display: block;
-      font-weight: 400;
-      color: var(--texto-suave);
-      font-size: 0.75rem;
-    }
-
-    .barra-compra .btn {
-      white-space: nowrap;
-      padding: 12px 20px;
-      font-size: 0.9rem;
     }
 
     /* Desktop */
@@ -779,10 +772,6 @@
         right: -20px;
       }
 
-      .barra-compra {
-        display: none;
-      }
-
       .rodape {
         padding: 28px 0;
       }
@@ -809,13 +798,13 @@
     <!-- Hero -->
     <section class="hero">
       <div class="container hero-grid">
-        <div class="hero-foto foto-card">
-          <img src="https://medsix.com.br/wp-content/uploads/2026/07/easy-speak-cilindro-aberto-virado-pra-frente.webp" alt="Válvula EasySpeak vista de frente, com o corpo em policarbonato transparente" loading="eager" onerror="this.closest('.hero-foto').style.display='none'">
+        <div class="hero-foto">
+          <img src="https://medsix.com.br/wp-content/uploads/2026/07/easy-speak-com-o-estojo-ao-lado.webp" alt="Válvula EasySpeak ao lado do estojo de armazenamento" loading="eager" onerror="this.closest('.hero-foto').style.display='none'">
         </div>
         <div class="hero-texto">
           <span class="selo-topo">
             <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
-            Registro ANVISA ativo
+            Registro ANVISA 82417969017
           </span>
           <h1>Volte a falar com quem você ama</h1>
           <p class="sub">A válvula EasySpeak ajuda pacientes traqueostomizados a recuperar a fala de forma simples e segura, sempre com acompanhamento de um profissional de saúde.</p>
@@ -866,7 +855,29 @@
     <section>
       <div class="container">
         <h2>O que é a EasySpeak e para quem ela serve</h2>
-        <p class="texto-central">A EasySpeak é uma válvula de fala e deglutição para cânula de traqueostomia. Ela é indicada para pacientes conscientes e estáveis, com capacidade para vocalizar, sempre sob prescrição e supervisão de um profissional de saúde habilitado. Ela ajuda a restabelecer a comunicação oral, favorece a reabilitação da deglutição e contribui para o processo de recuperação respiratória.</p>
+        <div class="grid-cards tres">
+          <div class="card">
+            <h3>
+              <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8l-1 8a3 3 0 0 1-6 0z"/><path d="M10 21h4"/><path d="M12 16v5"/></svg>
+              O que é
+            </h3>
+            <p>A EasySpeak é uma válvula de fala e deglutição para cânula de traqueostomia.</p>
+          </div>
+          <div class="card">
+            <h3>
+              <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg>
+              Para quem serve
+            </h3>
+            <p>Indicada para pacientes conscientes e estáveis, com capacidade para vocalizar, sempre sob prescrição e supervisão de um profissional de saúde habilitado.</p>
+          </div>
+          <div class="card">
+            <h3>
+              <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21C7 17 4 13.5 4 9.5A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 8 2.5c0 4-3 7.5-8 11.5z"/></svg>
+              Como ajuda
+            </h3>
+            <p>Ajuda a restabelecer a comunicação oral, favorece a reabilitação da deglutição e contribui para o processo de recuperação respiratória.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1103,15 +1114,6 @@
       <p>Fabricado por Plastex do Brasil Indústria e Comércio Ltda. AFE 8.24179 6. Responsável técnica: Stella Maris Alves Branco Frossard, CRO/SP 42594. Registro ANVISA 82417969017. Distribuído por MedSix.</p>
     </div>
   </footer>
-
-  <!-- Barra fixa de compra (mobile) -->
-  <div class="barra-compra">
-    <div class="preco-barra">
-      R$ 800
-      <small>6x de R$ 133,33 no cartão</small>
-    </div>
-    <a class="btn" href="#"><!-- LINK DO CHECKOUT AQUI -->Comprar agora</a>
-  </div>
 
   <script>
     document.querySelectorAll('.faq-pergunta').forEach(function (botao) {
