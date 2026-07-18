@@ -252,9 +252,13 @@
       flex-shrink: 0;
     }
 
+    .confianca-rapida-desktop {
+      display: none;
+    }
+
     /* Seções */
     section {
-      padding: 48px 0;
+      padding: 30px 0;
     }
 
     section h2 {
@@ -742,18 +746,50 @@
     /* Desktop */
     @media (min-width: 768px) {
       .hero {
-        padding: 72px 0 64px;
+        padding: 48px 0;
       }
 
       .hero-grid {
         display: grid;
-        grid-template-columns: 1.1fr 0.9fr;
+        grid-template-columns: 1fr 1fr;
         gap: 48px;
-        align-items: center;
+        align-items: stretch;
       }
 
       .hero-foto {
         order: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 28px;
+      }
+
+      .hero-foto img {
+        max-height: 360px;
+        object-fit: contain;
+      }
+
+      .confianca-rapida-mobile {
+        display: none;
+      }
+
+      .confianca-rapida-desktop {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 0;
+        padding: 18px 22px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: var(--raio);
+      }
+
+      .confianca-rapida-desktop li {
+        font-size: 0.9rem;
+      }
+
+      .hero-texto {
+        align-self: center;
       }
 
       .hero h1 {
@@ -835,6 +871,11 @@
         <div class="hero-grid">
           <div class="hero-foto">
             <img src="https://medsix.com.br/wp-content/uploads/2026/07/easy-speak-com-o-estojo-ao-lado.webp" alt="Válvula EasySpeak ao lado do estojo de armazenamento" loading="eager" onerror="this.closest('.hero-foto').style.display='none'">
+            <ul class="confianca-rapida confianca-rapida-desktop">
+              <li><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Registro ativo na ANVISA</li>
+              <li><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Embalagem individual estéril</li>
+              <li><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Devolução em até 7 dias</li>
+            </ul>
           </div>
           <div class="hero-texto">
             <span class="selo-topo">
@@ -851,7 +892,7 @@
               Comprar agora
               <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
             </a>
-            <ul class="confianca-rapida">
+            <ul class="confianca-rapida confianca-rapida-mobile">
               <li><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Registro ativo na ANVISA</li>
               <li><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Embalagem individual estéril</li>
               <li><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Devolução em até 7 dias</li>
