@@ -163,7 +163,8 @@
     }
 
     .selo-topo {
-      display: inline-flex;
+      display: flex;
+      width: fit-content;
       align-items: center;
       gap: 6px;
       background: rgba(255, 255, 255, 0.12);
@@ -174,7 +175,7 @@
       letter-spacing: 0.02em;
       padding: 6px 14px;
       border-radius: 999px;
-      margin-bottom: 16px;
+      margin: 0 auto 16px;
     }
 
     .selo-topo .icone {
@@ -263,10 +264,6 @@
       stroke: #ffffff;
       margin: 0;
       flex-shrink: 0;
-    }
-
-    .confianca-rapida-desktop {
-      display: none;
     }
 
     /* Seções */
@@ -766,43 +763,33 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 48px;
-        align-items: stretch;
+        align-items: center;
       }
 
       .hero-foto {
         order: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 28px;
       }
 
       .hero-foto img {
-        max-height: 360px;
+        width: 100%;
+        max-height: 500px;
         object-fit: contain;
+        object-position: center;
       }
 
-      .confianca-rapida-mobile {
-        display: none;
+      .selo-topo {
+        margin: 0 0 18px;
       }
 
-      .confianca-rapida-desktop {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        margin-top: 0;
-        padding: 18px 22px;
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        border-radius: var(--raio);
+      .confianca-rapida {
+        margin-top: 22px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.16);
+        gap: 12px;
       }
 
-      .confianca-rapida-desktop li {
-        font-size: 0.9rem;
-      }
-
-      .hero-texto {
-        align-self: center;
+      .confianca-rapida li {
+        font-size: 0.92rem;
       }
 
       .hero h1 {
@@ -885,11 +872,6 @@
         <div class="hero-grid">
           <div class="hero-foto">
             <img src="https://medsix.com.br/wp-content/uploads/2026/07/FOTO-PRINCIPAL.webp" alt="Válvula de fala EasySpeak com o estojo de armazenamento" loading="eager" onerror="this.closest('.hero-foto').style.display='none'">
-            <ul class="confianca-rapida confianca-rapida-desktop">
-              <li><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Registro ativo na ANVISA</li>
-              <li><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Embalagem individual estéril</li>
-              <li><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Devolução em até 7 dias</li>
-            </ul>
           </div>
           <div class="hero-texto">
             <span class="selo-topo">
@@ -906,7 +888,7 @@
               Comprar agora
               <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
             </a>
-            <ul class="confianca-rapida confianca-rapida-mobile">
+            <ul class="confianca-rapida">
               <li><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Registro ativo na ANVISA</li>
               <li><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Embalagem individual estéril</li>
               <li><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Devolução em até 7 dias</li>
